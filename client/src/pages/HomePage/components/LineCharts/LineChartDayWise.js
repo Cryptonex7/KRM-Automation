@@ -3,16 +3,16 @@ import Plot from 'react-plotly.js';
 import {useEffect} from 'react';
 import {useTheme} from '@material-ui/core/styles';
 
-function LineChartCummulative(props) {
+function LineChartDayWise(props) {
   const {data, logScale} = props;
 
-  const [cx, setcx] = useState([...data.day_wise_confirmed.x]);
-  const [rx, setrx] = useState([...data.recovered_cumulative.x]);
-  const [dx, setdx] = useState([...data.deaths_cumulative.x]);
+  const [cx, setcx] = useState([...data.day_wise_encountered.x]);
+  const [rx, setrx] = useState([...data.day_wise_recovered.x]);
+  const [dx, setdx] = useState([...data.day_wise_deaths.x]);
 
-  const [cy] = useState([...data.day_wise_confirmed.y]);
-  const [ry] = useState([...data.recovered_cumulative.y]);
-  const [dy] = useState([...data.deaths_cumulative.y]);
+  const [cy] = useState([...data.day_wise_encountered.y]);
+  const [ry] = useState([...data.day_wise_recovered.y]);
+  const [dy] = useState([...data.day_wise_deaths.y]);
 
   const theme = useTheme();
   const months = [
@@ -85,25 +85,38 @@ function LineChartCummulative(props) {
         layout={{
           yaxis: {
             type: logScale ? 'log' : 'linear',
-            automargin: true,
             gridcolor: theme.palette.graphLines.default,
             showline: true,
+            tickfont: {
+              color: theme.palette.text.secondary,
+            },
+            fixedrange: true,
           },
           xaxis: {
             nticks: 5,
             gridcolor: theme.palette.graphLines.default,
+            tickfont: {
+              color: theme.palette.text.secondary,
+            },
+            fixedrange: true,
+          },
+          transition: {
+            duration: 500,
+            easing: 'cubic-in-out',
+            ordering: 'traces first',
           },
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
           margin: {
-            l: 0,
-            r: 10,
+            l: 40,
+            r: 20,
             b: 30,
             t: 10,
             pad: 0,
           },
           width: Math.min(580, window.innerWidth - 20),
           height: Math.min(240, (window.innerWidth - 20) / 2),
+          legend: {orientation: 'h'},
         }}
         config={{
           responsive: true,
@@ -113,4 +126,4 @@ function LineChartCummulative(props) {
     )
   );
 }
-export default LineChartCummulative;
+export default LineChartDayWise;

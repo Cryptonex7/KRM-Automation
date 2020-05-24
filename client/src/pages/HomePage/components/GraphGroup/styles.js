@@ -11,16 +11,31 @@ export const useStyles = makeStyles((theme) => ({
     backgroundColor: 'rgba(255, 255, 255, .05)',
     backdropFilter: 'blur(5px)',
     padding: '10px 0',
+    [theme.breakpoints.up('md')]: {
+      padding: 10,
+    },
   },
   tabs: {
     fontSize: 14,
-    fontWeight: 600,
-    [theme.breakpoints.up('sm')]: {
+    fontWeight: 700,
+    [theme.breakpoints.up('md')]: {
       fontSize: 20,
     },
   },
   title: {
     fontSize: 20,
     fontWeight: 600,
+  },
+  indicator0: {
+    backgroundColor: theme.palette.stats.confirmed,
+  },
+  indicator1: {
+    backgroundColor: theme.palette.stats.active,
+  },
+  indicator2: {
+    backgroundColor: theme.palette.stats.recovered,
+  },
+  indicator3: {
+    backgroundColor: theme.palette.stats.deceased,
   },
 }));

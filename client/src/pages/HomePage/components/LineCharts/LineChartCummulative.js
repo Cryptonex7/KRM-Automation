@@ -85,12 +85,12 @@ function LineChartCummulative(props) {
         layout={{
           yaxis: {
             type: logScale ? 'log' : 'linear',
-            automargin: true,
             gridcolor: theme.palette.graphLines.default,
             showline: true,
             tickfont: {
               color: theme.palette.text.secondary,
             },
+            fixedrange: true,
           },
           xaxis: {
             nticks: 5,
@@ -98,18 +98,25 @@ function LineChartCummulative(props) {
             tickfont: {
               color: theme.palette.text.secondary,
             },
+            fixedrange: true,
+          },
+          transition: {
+            duration: 500,
+            easing: 'cubic-in-out',
+            ordering: 'traces first',
           },
           paper_bgcolor: 'rgba(0,0,0,0)',
           plot_bgcolor: 'rgba(0,0,0,0)',
           margin: {
-            l: 0,
-            r: 10,
+            l: 40,
+            r: 20,
             b: 30,
             t: 10,
             pad: 0,
           },
           width: Math.min(580, window.innerWidth - 20),
           height: Math.min(240, (window.innerWidth - 20) / 2),
+          legend: {orientation: 'h'},
         }}
         config={{
           responsive: true,
