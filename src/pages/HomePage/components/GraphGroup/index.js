@@ -4,15 +4,14 @@ import useTheme from '@material-ui/core/styles/useTheme';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import LineCharts from '../LineCharts';
-import BinarySwitch from '../../../../modules/BinarySwitch';
 import Divider from '@material-ui/core/Divider';
+import BarGraph from '../StateWise/components/BarGraph';
+import PieChart from '../TravelHistory/PieChart';
 
 function GraphGroup(props) {
   const {group, title} = props;
   const classes = useStyles();
   const [value, setValue] = useState(0);
-  const [logChecked, setLogChecked] = useState(false);
 
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
@@ -27,12 +26,7 @@ function GraphGroup(props) {
           <Tabs
             value={value}
             onChange={handleChange}
-            classes={
-              (value === 0 && {indicator: classes.indicator0}) ||
-              (value === 1 && {indicator: classes.indicator1}) ||
-              (value === 2 && {indicator: classes.indicator2}) ||
-              (value === 3 && {indicator: classes.indicator3})
-            }
+            classes={{indicator: classes.indicator}}
           >
             {group.map((data, idx) => (
               <Tab
@@ -42,44 +36,16 @@ function GraphGroup(props) {
               />
             ))}
           </Tabs>
-          {/* CUMMULATIVE */}
-          {group.map(
-            (data, idx) =>
-              value === idx && (
-                <LineCharts
-                  data={data.data}
-                  type={idx}
-                  title={data.title}
-                  logChecked={logChecked}
-                />
-              )
-          )}
+          {value === 0 && <BarGraph data={group[0].data} color={1} />}
+          {value === 1 && <PieChart data={group[1].data} />}
         </>
       ) : (
         <div className={classes.flexCol}>
-          {/* CUMMULATIVE / Logarithmic */}
-          <LineCharts
-            data={group[0].data}
-            title={group[0].title}
-            type={0}
-            logChecked={logChecked}
-          />
+          <BarGraph data={group[0].data} color={1} />
           <Divider light variant="middle" flexItem style={{height: 1}} />
-          {/* Day Wise */}
-          <LineCharts
-            data={group[1].data}
-            title={group[1].title}
-            type={1}
-            logChecked={logChecked}
-          />
+          <PieChart data={group[1].data} />
         </div>
       )}
-      <BinarySwitch
-        leftVal="Linear"
-        rightVal="Logarithmic"
-        handleChange={setLogChecked}
-        rightChecked={logChecked}
-      />
     </div>
   );
 }

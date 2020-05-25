@@ -8,9 +8,12 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     padding: 10,
-    paddingTop: 80,
+    paddingTop: 60,
     position: 'absolute',
     top: 0,
+    [theme.breakpoints.up('md')]: {
+      paddingTop: 80,
+    },
   },
   compressor: {
     maxWidth: 1200,
@@ -49,11 +52,12 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: 40,
+    marginTop: 0,
     marginBottom: 18,
     width: '100%',
     [theme.breakpoints.up('md')]: {
       flexDirection: 'column',
+      marginTop: 40,
     },
   },
   headerImage: {
@@ -70,6 +74,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary,
     [theme.breakpoints.up('md')]: {
       fontSize: 28,
+      textAlign: 'center',
     },
   },
   headerSubText: {
@@ -78,6 +83,7 @@ export const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     [theme.breakpoints.up('md')]: {
       fontSize: 18,
+      textAlign: 'center',
     },
   },
 }));

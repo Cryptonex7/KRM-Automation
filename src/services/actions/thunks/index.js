@@ -41,7 +41,7 @@ export const getAllGraphData = async (dispatch) => {
     },
   };
   try {
-    const res = await Axios.get(`${API_URL}/api/get_all`, headers);
+    const res = await Axios.get(`${API_URL}/analyse`, headers);
     dispatch({
       type: actions.GET_GRAPH_DATA_ALL_SUCCESS,
       payload: res.data,

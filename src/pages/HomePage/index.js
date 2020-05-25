@@ -2,14 +2,11 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useStyles} from './styles';
 import {getAllGraphData} from '../../services/actions';
-import StateWise from './components/StateWise';
-import TravelHistory from './components/TravelHistory';
 import useTheme from '@material-ui/core/styles/useTheme';
 import LandingSection from './components/LandingSection';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Divider from '@material-ui/core/Divider';
 import GraphGroup from './components/GraphGroup';
-import DistrictWise from './components/DistrictWise';
 import Footer from '../../modules/Footer';
 
 function HomePage() {
@@ -37,105 +34,43 @@ function HomePage() {
               <>
                 <div className={classes.flexRow}>
                   <GraphGroup
-                    title=""
+                    title="Students Hired Per Year"
                     group={[
                       {
-                        data: graphData.country_wise,
-                        title: 'Cummulative',
+                        data: graphData.student.stud_hired_per_year_bar,
+                        title: 'Number',
                       },
                       {
-                        data: graphData.country_wise,
-                        title: 'Day-Wise',
+                        data: graphData.student.stud_hired_per_year_pie,
+                        title: 'Percentage',
                       },
                     ]}
                   />
-                  <div className={classes.HeatMap}>
-                    {/* HEATMAP / Bar */}
-                    <StateWise
-                      data={graphData.state_wise}
-                      barData={graphData.state_wise.state_wise_confirmed}
-                      title="State-Wise Data"
-                    />
-                  </div>
                 </div>
                 <br />
                 <Divider light variant="middle" flexItem style={{height: 1}} />
                 <br />
-                <div className={classes.flexRow}>
-                  {/* Travel History */}
-                  <TravelHistory data={graphData.travel_history_analysis} />
-                  <DistrictWise
-                    title="Top District Data"
-                    group={[
-                      {
-                        data: graphData.district_wise.district_wise_confirmed,
-                        title: 'Confirmed',
-                      },
-                      {
-                        data: graphData.district_wise.district_wise_active,
-                        title: 'Active',
-                      },
-                      {
-                        data: graphData.district_wise.district_wise_recovered,
-                        title: 'Recovered',
-                      },
-                      {
-                        data: graphData.district_wise.district_wise_deaths,
-                        title: 'Deceased',
-                      },
-                    ]}
-                  />
-                </div>
+                <div className={classes.flexRow}></div>
               </>
             ) : (
               <>
                 <GraphGroup
-                  title="Current Trends"
+                  title="Students Hired Per Year"
                   group={[
                     {
-                      data: graphData.country_wise,
-                      title: 'Cummulative',
+                      data: graphData.student.stud_hired_per_year_bar,
+                      title: 'Number',
                     },
                     {
-                      data: graphData.country_wise,
-                      title: 'Day-Wise',
-                    },
-                  ]}
-                />
-
-                {/* HEATMAP / Bar */}
-                <StateWise
-                  data={graphData.state_wise}
-                  barData={graphData.state_wise.state_wise_confirmed}
-                  title="State-Wise Data"
-                />
-
-                {/* Travel History */}
-                <TravelHistory data={graphData.travel_history_analysis} />
-                <DistrictWise
-                  title="Top District Data"
-                  group={[
-                    {
-                      data: graphData.district_wise.district_wise_confirmed,
-                      title: 'Confirmed',
-                    },
-                    {
-                      data: graphData.district_wise.district_wise_active,
-                      title: 'Active',
-                    },
-                    {
-                      data: graphData.district_wise.district_wise_recovered,
-                      title: 'Recovered',
-                    },
-                    {
-                      data: graphData.district_wise.district_wise_deaths,
-                      title: 'Deceased',
+                      data: graphData.student.stud_hired_per_year_pie,
+                      title: 'Percentage',
                     },
                   ]}
                 />
               </>
             )}
           </div>
+          {console.log(graphData)}
           <Footer />
         </div>
       </div>

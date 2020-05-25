@@ -26,16 +26,7 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: 20,
     fontWeight: 600,
   },
-  indicator0: {
-    backgroundColor: theme.palette.stats.confirmed,
-  },
-  indicator1: {
+  indicator: {
     backgroundColor: theme.palette.stats.active,
-  },
-  indicator2: {
-    backgroundColor: theme.palette.stats.recovered,
-  },
-  indicator3: {
-    backgroundColor: theme.palette.stats.deceased,
   },
 }));

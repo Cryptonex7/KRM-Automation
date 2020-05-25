@@ -1,7 +1,6 @@
 import React from 'react';
 import {useStyles} from '../../styles';
 import logo from '../../../../assets/logo.svg';
-import PageTitle from '../../../../modules/PageTitle';
 
 function LandingSection() {
   const classes = useStyles();
@@ -9,14 +8,15 @@ function LandingSection() {
     <>
       <div className={classes.header}>
         <img alt="" src={logo} className={classes.headerImage} />
-        <div className={classes.headerContent}>
-          <div className={classes.headerText}>COVID-19 Analytics India</div>
+        <div className={classes.headerContent + classes.flexCol}>
+          <div className={classes.headerText}>
+            KIIT Placements {new Date().getFullYear()} Analysis
+          </div>
           <div className={classes.headerSubText}>
-            More than just numbers and words...
+            The Power of Analytics to Korporate Relationship Management!
           </div>
         </div>
       </div>
-      <PageTitle>HOME</PageTitle>
     </>
   );
 }

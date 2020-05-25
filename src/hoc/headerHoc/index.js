@@ -11,8 +11,6 @@ import {withRouter} from 'react-router-dom';
 
 import {styles} from './styles';
 import {toggleTheme} from '../../services/actions';
-import BinarySwitch from '../../modules/BinarySwitch';
-import PageTabs from '../../modules/PageTabs';
 import logo from '../../assets/logo.svg';
 import {withTranslation} from 'react-i18next';
 
@@ -22,7 +20,7 @@ const headerHoc = (WrapComponent) => {
       this.props.i18n.changeLanguage(checked ? 'hi' : 'en');
 
     render() {
-      const {classes, i18n, isDarkTheme, toggleTheme, history} = this.props;
+      const {classes, isDarkTheme, toggleTheme, history} = this.props;
 
       return (
         <>
@@ -33,14 +31,6 @@ const headerHoc = (WrapComponent) => {
                 alt="logo"
                 className={classes.logo}
                 onClick={() => history.push('/')}
-              />
-              {/* Language Toggle */}
-              <BinarySwitch
-                className={classes.langToggle}
-                leftVal="English"
-                rightVal="हिन्दी"
-                handleChange={this.handleChange}
-                rightChecked={i18n.language === 'hi'}
               />
               <Toolbar>
                 {/* Theme Toggle */}
@@ -56,7 +46,6 @@ const headerHoc = (WrapComponent) => {
                 </IconButton>
               </Toolbar>
             </AppBar>
-            <PageTabs />
           </div>
           <WrapComponent />
         </>
