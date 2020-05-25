@@ -5,6 +5,16 @@
         { "src": "*.py", "use": "@liudonghua123/now-flask" , "config": { "maxLambdaSize": "30mb" } }
     ],
     "routes": [
-        { "src": "/server*", "dest": "/"}
-    ]
+        { "src": "/server", "dest": "/"}
+    ],
+    "rewrites": [
+        {
+          "source": "/server",
+          "destination": "/"
+        },
+        {
+          "source": "/server/(.*)",
+          "destination": "/$1"
+        }
+      ]
 }
