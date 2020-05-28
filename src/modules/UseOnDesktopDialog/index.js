@@ -8,7 +8,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import logo from '../../assets/logo.svg';
 
-function UseOnDesktopDialog(props) {
+function UseOnDesktopDialog() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   return (

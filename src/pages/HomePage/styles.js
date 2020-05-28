@@ -8,12 +8,7 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     padding: 10,
-    paddingTop: 60,
-    position: 'absolute',
-    top: 0,
-    [theme.breakpoints.up('md')]: {
-      paddingTop: 80,
-    },
+    [theme.breakpoints.up('md')]: {},
   },
   compressor: {
     maxWidth: 1200,
