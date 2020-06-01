@@ -2,14 +2,14 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 // import {useStyles} from './styles';
 import {getAllGraphData} from '../../services/actions';
-import GraphGroup from './components/GraphGroup';
+import GraphGroup from '../../modules/GraphGroup';
 import {Grid, Divider} from '@material-ui/core';
 import GridItem from '../../modules/GridItem';
-import PieChart from './components/PieChart';
-import BarGraph from './components/BarGraph';
-import LineChart from './components/LineCharts';
+import PieChart from '../../modules/PieChart';
+import BarGraph from '../../modules/BarGraph';
+import LineChart from '../../modules/LineCharts';
 
-function HomePage() {
+function StudentPage() {
   // const classes = useStyles();
   const dispatch = useDispatch();
   const graphData = useSelector((state) => state.thunk.graphData);
@@ -51,7 +51,6 @@ function HomePage() {
         <GridItem xs={4} title={graphData.student.stud_profile_hbar.title}>
           <BarGraph color={1} data={graphData.student.stud_profile_hbar} />
         </GridItem>
-        {console.log(graphData)}
       </Grid>
 
       <br />
@@ -78,4 +77,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default StudentPage;

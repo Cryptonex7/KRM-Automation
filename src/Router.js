@@ -1,5 +1,5 @@
 import React, {lazy} from 'react';
-import {Switch, Route} from 'react-router';
+import {Switch, Route, Redirect} from 'react-router';
 import suspenseHoc from './hoc/suspenseHoc';
 import withScaffold from './hoc/withScaffold';
 import withStyles from '@material-ui/core/styles/withStyles';
@@ -7,14 +7,26 @@ import './App.scss';
 import {globalStyles} from './globalStyles';
 import UseOnDesktopDialog from './modules/UseOnDesktopDialog';
 import GetStartedDialog from './modules/GetStartedDialog';
-const HomePage = lazy(() => import('./pages/HomePage'));
+
+const StudentPage = lazy(() => import('./pages/StudentPage'));
+const CompanyPage = lazy(() => import('./pages/CompanyPage'));
 
 function Router(props) {
   return (
     <>
       <Switch>
-        <Route exact path="/" component={suspenseHoc(HomePage)} />
+        <Route
+          exact
+          path="/StudentAnalytics"
+          component={suspenseHoc(StudentPage)}
+        />
+        <Route
+          exact
+          path="/CompanyAnalytics"
+          component={suspenseHoc(CompanyPage)}
+        />
       </Switch>
+      <Redirect from="/" to="/StudentAnalytics" />
       <GetStartedDialog />
       <UseOnDesktopDialog />
     </>
