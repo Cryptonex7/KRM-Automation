@@ -2,9 +2,12 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 // import {useStyles} from './styles';
 import {getAllGraphData} from '../../services/actions';
-import Divider from '@material-ui/core/Divider';
 import GraphGroup from './components/GraphGroup';
-import {Grid} from '@material-ui/core';
+import {Grid, Divider} from '@material-ui/core';
+import GridItem from '../../modules/GridItem';
+import PieChart from './components/PieChart';
+import BarGraph from './components/BarGraph';
+import LineChart from './components/LineCharts';
 
 function HomePage() {
   // const classes = useStyles();
@@ -18,38 +21,58 @@ function HomePage() {
     fetchGraphData();
   }, [dispatch]);
   return Object.keys(graphData).length > 0 ? (
-    <Grid>
-      <GraphGroup
-        title="Students Hired Per Year"
-        group={[
-          {
-            data: graphData.student.stud_hired_per_year_bar,
-            title: 'Number',
-          },
-          {
-            data: graphData.student.stud_hired_per_year_pie,
-            title: 'Percentage',
-          },
-        ]}
-      />
+    <>
+      <Grid container direction="row" spacing={6}>
+        <GridItem
+          xs={4}
+          isTabbed
+          title={graphData.student.stud_hired_per_year_bar.title}
+        >
+          <GraphGroup
+            group={[
+              {
+                data: graphData.student.stud_hired_per_year_bar,
+                title: 'Number',
+              },
+              {
+                data: graphData.student.stud_hired_per_year_pie,
+                title: 'Percentage',
+              },
+            ]}
+          />
+        </GridItem>
+        <GridItem
+          xs={4}
+          title={graphData.student.stud_hired_per_year_pie.title}
+        >
+          {/* //! Change to: student.stud_branch_pie} */}
+          <PieChart data={graphData.student.stud_hired_per_year_pie} />
+        </GridItem>
+        <GridItem xs={4} title={graphData.student.stud_profile_hbar.title}>
+          <BarGraph color={1} data={graphData.student.stud_profile_hbar} />
+        </GridItem>
+        {console.log(graphData)}
+      </Grid>
+
       <br />
       <Divider light variant="middle" flexItem style={{height: 1}} />
       <br />
-      <GraphGroup
-        title="Students Hired Per Year"
-        group={[
-          {
-            data: graphData.student.stud_hired_per_year_bar,
-            title: 'Number',
-          },
-          {
-            data: graphData.student.stud_hired_per_year_pie,
-            title: 'Percentage',
-          },
-        ]}
-      />
-      {console.log(graphData)}
-    </Grid>
+
+      <Grid container direction="row" spacing={6}>
+        <GridItem xs={6} title={graphData.student.stud_cgpa_line.title}>
+          <LineChart data={graphData.student.stud_cgpa_line} />
+        </GridItem>
+
+        <GridItem xs={6} title={graphData.student.stud_package_hbar.title}>
+          <BarGraph color={1} data={graphData.student.stud_package_hbar} />
+        </GridItem>
+        {console.log(graphData)}
+      </Grid>
+      <br />
+      <br />
+      <br />
+      <br />
+    </>
   ) : (
     <div className="loader"></div>
   );

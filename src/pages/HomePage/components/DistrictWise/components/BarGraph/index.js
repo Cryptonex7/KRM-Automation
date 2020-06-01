@@ -1,11 +1,7 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import useTheme from '@material-ui/core/styles/useTheme';
 
 function BarGraph(props) {
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const {data, color} = props;
   const colors = [...Object.values(theme.palette.stats)];
 
@@ -39,7 +35,7 @@ function BarGraph(props) {
         },
         yaxis: {
           tickfont: {
-            size: matches ? 12 : 6,
+            size: 12,
             color: theme.palette.text.secondary,
           },
           automargin: true,
@@ -52,7 +48,7 @@ function BarGraph(props) {
           fixedrange: true,
         },
         width: Math.min(600, window.innerWidth - 20),
-        height: matches ? 503 : 340,
+        height: 503,
       }}
       config={{
         responsive: true,
