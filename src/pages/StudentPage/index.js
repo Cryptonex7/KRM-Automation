@@ -45,8 +45,7 @@ function StudentPage() {
           xs={4}
           title={graphData.student.stud_hired_per_year_pie.title}
         >
-          {/* //! Change to: student.stud_branch_pie} */}
-          <PieChart data={graphData.student.stud_hired_per_year_pie} />
+          <PieChart data={graphData.student.stud_branch_pie} />
         </GridItem>
         <GridItem xs={4} title={graphData.student.stud_profile_hbar.title}>
           <BarGraph color={1} data={graphData.student.stud_profile_hbar} />
