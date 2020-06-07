@@ -51,6 +51,7 @@ export const styles = (theme) => ({
     padding: theme.spacing(3),
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: drawerWidth,
+    height: '100vh',
   },
   headerText: {
     fontSize: 1,
@@ -75,5 +76,11 @@ export const styles = (theme) => ({
   },
   button: {
     margin: theme.spacing(1),
+  },
+  activeTab: {
+    backgroundColor: theme.palette.background.default,
+  },
+  noBorder: {
+    border: 'none',
   },
 });

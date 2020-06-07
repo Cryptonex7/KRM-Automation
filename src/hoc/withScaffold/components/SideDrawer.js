@@ -22,6 +22,7 @@ function SideDrawer({classes, history}) {
       variant="permanent"
       classes={{
         paper: classes.drawerPaper,
+        paperAnchorLeft: classes.noBorder,
       }}
     >
       <Toolbar />
@@ -40,20 +41,27 @@ function SideDrawer({classes, history}) {
         </div>
         <Divider />
         <List>
-          {['Student Analytics', 'Company Analytics', 'Company Database'].map(
-            (text, index) => (
-              <ListItem
-                button
-                key={text}
-                onClick={() => history.push(`/${text.split(' ').join('')}`)}
-              >
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            )
-          )}
+          {[
+            'Student Analytics',
+            'Company Analytics',
+            'Student Database',
+            'Company Database',
+          ].map((text, index) => (
+            <ListItem
+              button
+              key={text}
+              onClick={() => history.push(`/${text.split(' ').join('')}`)}
+              className={
+                window.location.pathname === `/${text.split(' ').join('')}` &&
+                classes.activeTab
+              }
+            >
+              <ListItemIcon>
+                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
         </List>
         <Divider />
         <List>

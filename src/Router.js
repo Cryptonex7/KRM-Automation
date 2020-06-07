@@ -9,6 +9,8 @@ import UseOnDesktopDialog from './modules/UseOnDesktopDialog';
 import GetStartedDialog from './modules/GetStartedDialog';
 
 const StudentPage = lazy(() => import('./pages/StudentPage'));
+const StudentDatabasePage = lazy(() => import('./pages/StudentDatabasePage'));
+const CompanyDatabasePage = lazy(() => import('./pages/CompanyDatabasePage'));
 const CompanyPage = lazy(() => import('./pages/CompanyPage'));
 
 function Router(props) {
@@ -25,8 +27,18 @@ function Router(props) {
           path="/CompanyAnalytics"
           component={suspenseHoc(CompanyPage)}
         />
+        <Route
+          exact
+          path="/StudentDatabase"
+          component={suspenseHoc(StudentDatabasePage)}
+        />
+        <Route
+          exact
+          path="/CompanyDatabase"
+          component={suspenseHoc(CompanyDatabasePage)}
+        />
       </Switch>
-      <Redirect from="/" to="/StudentAnalytics" />
+      <Redirect from="/" to="/CompanyDatabase" />
       <GetStartedDialog />
       <UseOnDesktopDialog />
     </>

@@ -8,7 +8,7 @@ import {withRouter} from 'react-router-dom';
 import {styles} from './styles';
 import CustomAppBar from './components/CustomAppBar';
 import SideDrawer from './components/SideDrawer';
-import Footer from '../../modules/Footer';
+// import Footer from '../../modules/Footer';
 
 const withScaffold = (WrapComponent) => {
   class HocContent extends React.Component {
@@ -24,7 +24,7 @@ const withScaffold = (WrapComponent) => {
             <main className={classes.content}>
               <Toolbar />
               <WrapComponent />
-              <Footer />
+              {/* <Footer /> */}
             </main>
           </div>
         </>
