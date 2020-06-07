@@ -46,6 +46,21 @@ export const lightTheme = createMuiTheme({
   typography: {
     fontFamily: ['Ubuntu'].join(','),
   },
+  overrides: {
+    MuiTabs: {
+      text: {
+        color: 'primary',
+      },
+      indicator: {
+        color: 'primary',
+      },
+    },
+    MuiPaper: {
+      root: {
+        transition: 'all 750ms',
+      },
+    },
+  },
 });
 
 export const darkTheme = createMuiTheme({
@@ -101,6 +116,11 @@ export const darkTheme = createMuiTheme({
       },
       indicator: {
         color: 'primary',
+      },
+    },
+    MuiPaper: {
+      root: {
+        transition: 'all 750ms',
       },
     },
   },

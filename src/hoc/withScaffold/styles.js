@@ -41,16 +41,16 @@ export const styles = (theme) => ({
         ? 'linear-gradient(to right, #001187 , #00002e)'
         : 'none',
     color: 'white',
-    transition: 'all 350ms',
+    transition: 'all 750ms',
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    transition: 'all 350ms',
+    transition: 'all 750ms',
   },
   drawerPaper: {
     width: drawerWidth,
-    transition: 'all 350ms',
+    transition: 'all 750ms',
   },
   drawerContainer: {
     overflow: 'auto',
@@ -62,7 +62,7 @@ export const styles = (theme) => ({
         ? 'linear-gradient(to right, #001187 , #00002e)'
         : 'none',
     paddingBottom: 10,
-    transition: 'all 350ms',
+    transition: 'all 750ms',
   },
   content: {
     flexGrow: 1,

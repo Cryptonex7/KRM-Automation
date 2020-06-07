@@ -65,6 +65,8 @@ function CompanyDatabasePage() {
           borderRadius: 8,
           border: 'none',
           overflow: 'hidden',
+          backgroundColor: theme.palette.background.paper,
+          transition: 'all 750ms',
         }}
         options={{
           maxBodyHeight: '80vh',
@@ -73,6 +75,12 @@ function CompanyDatabasePage() {
             top: 0,
             background: theme.palette.accent.secondary,
             color: 'white',
+          },
+          rowStyle: () => {
+            return {
+              backgroundColor: theme.palette.background.paper,
+              transition: 'all 750ms',
+            };
           },
           exportAllData: true,
           exportButton: true,
