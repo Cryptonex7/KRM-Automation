@@ -71,7 +71,8 @@ function CompanyDatabasePage() {
           headerStyle: {
             position: 'sticky',
             top: 0,
-            background: theme.palette.secondary.main,
+            background: theme.palette.accent.secondary,
+            color: 'white',
           },
           exportAllData: true,
           exportButton: true,
@@ -124,13 +125,11 @@ function CompanyDatabasePage() {
               setTimeout(() => {
                 resolve();
                 if (oldData) {
-                  {
-                    /* setState((prevState) => {
+                  /* setState((prevState) => {
                         const data = [...prevState.data];
                         data[data.indexOf(oldData)] = newData;
                         return {...prevState, data};
                       }); */
-                  }
                 }
               }, 600);
             }),
@@ -138,13 +137,11 @@ function CompanyDatabasePage() {
             new Promise((resolve) => {
               setTimeout(() => {
                 resolve();
-                {
-                  /* setState((prevState) => {
+                /* setState((prevState) => {
                       const data = [...prevState.data];
                       data.splice(data.indexOf(oldData), 1);
                       return {...prevState, data};
                     }); */
-                }
               }, 600);
             }),
         }}

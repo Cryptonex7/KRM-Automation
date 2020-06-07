@@ -5,6 +5,10 @@ export const lightTheme = createMuiTheme({
     type: 'light',
     primary: {main: '#FFFFFF'},
     secondary: {main: '#007AFB'},
+    accent: {
+      primary: '#007AFB',
+      secondary: '#001187',
+    },
     background: {
       default: '#e4e7ee',
       paper: '#FFFFFF',
@@ -49,6 +53,10 @@ export const darkTheme = createMuiTheme({
     type: 'dark',
     primary: {main: '#323232'},
     secondary: {main: '#007AFB'},
+    accent: {
+      primary: '#007AFB',
+      secondary: '#00002e',
+    },
     background: {
       default: '#121212',
       paper: '#2C2C2C',

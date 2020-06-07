@@ -40,7 +40,7 @@ function CustomAppBar({classes}) {
           </Typography>
           <div className={classes.grow} />
           <IconButton
-            className={isDarkTheme && classes.theme}
+            className={classes.themechanger}
             edge="end"
             onClick={() => dispatch(toggleTheme())}
           >

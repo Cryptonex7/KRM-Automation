@@ -130,13 +130,11 @@ function StudentDatabasePage() {
               setTimeout(() => {
                 resolve();
                 if (oldData) {
-                  {
-                    /* setState((prevState) => {
+                  /* setState((prevState) => {
                         const data = [...prevState.data];
                         data[data.indexOf(oldData)] = newData;
                         return {...prevState, data};
                       }); */
-                  }
                 }
               }, 600);
             }),
@@ -144,13 +142,11 @@ function StudentDatabasePage() {
             new Promise((resolve) => {
               setTimeout(() => {
                 resolve();
-                {
-                  /* setState((prevState) => {
+                /* setState((prevState) => {
                       const data = [...prevState.data];
                       data.splice(data.indexOf(oldData), 1);
                       return {...prevState, data};
                     }); */
-                }
               }, 600);
             }),
         }}

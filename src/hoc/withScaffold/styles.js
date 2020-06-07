@@ -27,24 +27,42 @@ export const styles = (theme) => ({
   langToggle: {
     flexGrow: 1,
   },
-  theme: {
-    color: theme.palette.secondary.main,
+  themechanger: {
+    color:
+      theme.palette.type === 'light' ? 'white' : theme.palette.accent.primary,
   },
   phone: {
     color: theme.palette.secondary.main,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    backgroundImage:
+      theme.palette.type === 'light'
+        ? 'linear-gradient(to right, #001187 , #00002e)'
+        : 'none',
+    color: 'white',
+    transition: 'all 350ms',
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    transition: 'all 350ms',
   },
   drawerPaper: {
     width: drawerWidth,
+    transition: 'all 350ms',
   },
   drawerContainer: {
     overflow: 'auto',
+  },
+  brandContainer: {
+    width: '100%',
+    backgroundImage:
+      theme.palette.type === 'dark'
+        ? 'linear-gradient(to right, #001187 , #00002e)'
+        : 'none',
+    paddingBottom: 10,
+    transition: 'all 350ms',
   },
   content: {
     flexGrow: 1,
@@ -79,6 +97,9 @@ export const styles = (theme) => ({
   },
   activeTab: {
     backgroundColor: theme.palette.background.default,
+  },
+  activeIcon: {
+    color: theme.palette.secondary.main,
   },
   noBorder: {
     border: 'none',
