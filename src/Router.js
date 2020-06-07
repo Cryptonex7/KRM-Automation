@@ -38,7 +38,7 @@ function Router(props) {
           component={suspenseHoc(CompanyDatabasePage)}
         />
       </Switch>
-      <Redirect from="/" to="/CompanyDatabase" />
+      <Redirect from="/" to="/StudentAnalytics" />
       <GetStartedDialog />
       <UseOnDesktopDialog />
     </>
